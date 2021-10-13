@@ -21,30 +21,30 @@ async def handle(msg):
     #username = msg['chat']['first_name']
     # Check that the content type is text and not the starting
     if content_type == 'text':
-        match msg['text']:
-            case '/block_dylan':
-                menu = await getMenuFBPhoto('https://www.facebook.com/blockhelsinki')
-                await postMenuPhoto(menu)
-            case '/fazer_postitalo':
-                menu = await getMenuFazerJson()
-                await postMenu(menu)
-            case '/latorre_fratello':
-                menu = await getMenuTorreScrape('fratello')
-                await postMenu(menu)
-            case '/latorre_lasipalatsi':
-                menu = await getMenuTorreScrape('lasipalatsi')
-                await postMenu(menu)
-            case '/pompier_albertinkatu':
-                menu = await getMenuPompierScrape('albertinkatu')
-                await postMenu(menu)
-            case '/pompier_espa':
-                menu = await getMenuPompierScrape('espa')
-                await postMenu(menu)
-            case '/zucchini':
-                menu = await getMenuFBPhoto('https://www.facebook.com/Kasvisravintola-Zucchini-2033302090217984/')
-                await postMenuPhoto(menu)
-            case _:
-                return "Incorrect location."
+        cmd = msg['text']
+        if cmd == '/block_dylan':
+            menu = await getMenuFBPhoto('https://www.facebook.com/blockhelsinki')
+            await postMenuPhoto(menu)
+        elif cmd == '/fazer_postitalo':
+            menu = await getMenuFazerJson()
+            await postMenu(menu)
+        elif cmd == '/latorre_fratello':
+            menu = await getMenuTorreScrape('fratello')
+            await postMenu(menu)
+        elif cmd == '/latorre_lasipalatsi':
+            menu = await getMenuTorreScrape('lasipalatsi')
+            await postMenu(menu)
+        elif cmd == '/pompier_albertinkatu':
+            menu = await getMenuPompierScrape('albertinkatu')
+            await postMenu(menu)
+        elif cmd == '/pompier_espa':
+            menu = await getMenuPompierScrape('espa')
+            await postMenu(menu)
+        elif cmd == '/zucchini':
+            menu = await getMenuFBPhoto('https://www.facebook.com/Kasvisravintola-Zucchini-2033302090217984/')
+            await postMenuPhoto(menu)
+        else:
+            return "Incorrect location."
 
         # if msg['text'] == '/loc1':
         #     #menu = await getMenuFazerJson()
